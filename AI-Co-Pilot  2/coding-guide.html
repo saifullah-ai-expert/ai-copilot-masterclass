@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding & Development Guide | AI Co-Pilot Masterclass</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-bg: #1A2E2A; 
+            --color-surface: #233B35; 
+            --color-surface-alt: #1F332E; 
+            --color-border: #304D46; 
+            --color-text-primary: #E8EAE3; 
+            --color-text-secondary: #A8B8B0; 
+            --color-text-headings: #F5F7F4; 
+            --color-accent-green-vibrant: #3DDC97; 
+            --color-accent-green-vibrant-hover: #32B87E; 
+            --color-accent-ochre: #D4A373; 
+            --color-accent-terracotta: #E57F5A; 
+            --color-accent-deep-forest: #2A5D3F; 
+            --color-primary-action-text: #0D1B18; 
+            --color-white: #FFFFFF;
+            --color-hero-canvas-base: #0A100E;
+            --color-hero-canvas-ripple1: rgba(61, 220, 151, 0.6);
+            --color-hero-canvas-ripple2: rgba(212, 163, 115, 0.5);
+            --color-hero-canvas-ripple3: rgba(44, 72, 90, 0.4);  
+            --color-hero-canvas-ripple4: rgba(61, 180, 220, 0.5);
+            --card-shadow: 0 8px 16px rgba(0,0,0,0.15), 0 4px 8px rgba(0,0,0,0.1);
+            --card-hover-shadow: 0 12px 24px rgba(0,0,0,0.2), 0 6px 12px rgba(0,0,0,0.15);
+            --text-shadow-subtle: 0 1px 2px rgba(0,0,0,0.3); 
+            --text-shadow-strong: 0 2px 5px rgba(0,0,0,0.5);
+            --button-glow-color: rgba(61, 220, 151, 0.35); 
+            --button-glow-hover-color: rgba(61, 220, 151, 0.5);
+            --font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --font-family-display: 'Manrope', var(--font-family-sans);
+            --font-weight-light: 300;
+            --font-weight-regular: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            --font-weight-extrabold: 800;
+            --line-height-tight: 1.3;
+            --line-height-normal: 1.65;
+            --line-height-relaxed: 1.8;
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-xxl: 3rem;
+            --spacing-xxxl: 4.5rem;
+            --border-radius-sm: 6px;
+            --border-radius-md: 10px;
+            --border-radius-lg: 14px;
+            --transition-fast: all 0.2s ease-in-out;
+            --transition-medium: all 0.3s ease-in-out;
+            --transition-slow: all 0.5s ease-in-out;
+            --header-height: 70px;
+            --inline-code-bg: rgba(0,0,0,0.2);
+            --inline-code-text: var(--color-accent-ochre);
+            --code-block-bg: #1E2D2A; 
+            --code-block-text: var(--color-text-primary);
+
+            --color-callout-pitfall-bg: rgba(229, 127, 90, 0.05);
+            --color-callout-pitfall-border: var(--color-accent-terracotta);
+            --color-callout-expert-bg: rgba(61, 220, 151, 0.05);
+            --color-callout-expert-border: var(--color-accent-green-vibrant);
+            --color-prompt-label-bg: var(--color-surface-alt); /* Darker for more contrast */
+            --color-prompt-label-text: var(--color-accent-ochre);
+            --color-prompt-label-border-glow: rgba(212, 163, 115, 0.7); /* Ochre glow */
+            --color-electric-blue-glow: #4D9FFF;
+            --color-scroll-bar: var(--color-accent-green-vibrant); /* Electric Green for scroll bar */
+            
+            /* Animation delays for staggering */
+            --delay-base: 100ms;
+            --delay-increment: 50ms; 
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            scroll-padding-top: calc(var(--header-height) + var(--spacing-md)); 
+        }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-family-sans);
+            font-weight: var(--font-weight-regular);
+            line-height: var(--line-height-normal);
+            color: var(--color-text-primary); 
+            background-color: var(--color-bg); 
+            font-size: 17px; 
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        #scroll-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px; /* Thickness of the bar */
+            background-color: var(--color-scroll-bar);
+            width: 0%; /* Starts at 0, JS will update */
+            z-index: 2000; /* Above everything */
+            transition: width 0.1s linear;
+            box-shadow: 0 0 10px var(--color-scroll-bar), 0 0 5px var(--color-scroll-bar);
+        }
+
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 0 var(--spacing-lg); 
+        }
+
+        header {
+            background-color: var(--color-surface-alt); 
+            padding: 0; 
+            box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            height: var(--header-height); 
+            display: flex; 
+            align-items: center;
+            border-bottom: 1px solid var(--color-border);
+        }
+        nav.container { width: 100%; display: flex; justify-content: center; align-items: center; }
+        nav ul { list-style: none; display: flex; justify-content: center; gap: var(--spacing-xl); }
+        nav ul li a {
+            text-decoration: none; 
+            color: var(--color-text-secondary); 
+            font-weight: var(--font-weight-medium); 
+            padding: var(--spacing-sm) 0; 
+            display: block; 
+            border-bottom: 3px solid transparent; 
+            transition: var(--transition-fast); 
+            font-size: 1rem; 
+            cursor: pointer;
+        }
+        nav ul li a:hover { color: var(--color-accent-green-vibrant); border-bottom-color: var(--color-accent-green-vibrant); }
+        nav ul li a.active { color: var(--color-accent-green-vibrant); border-bottom-color: var(--color-accent-green-vibrant); font-weight: var(--font-weight-semibold); }
+
+        main { padding-top: 0; } 
+        
+        .guide-page-content {
+            padding: var(--spacing-xl) 0 var(--spacing-xxl);
+            background-color: var(--color-bg); 
+        }
+        .page-title {
+            font-family: var(--font-family-display);
+            font-size: clamp(2.8rem, 5.5vw, 3.5rem); 
+            font-weight: var(--font-weight-bold);
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            color: var(--color-text-headings);
+            text-shadow: var(--text-shadow-subtle);
+        }
+        .page-intro.lead {
+            font-family: var(--font-family-sans);
+            font-size: 1.2rem; 
+            color: var(--color-text-secondary);
+            text-align: center;
+            max-width: 65ch; 
+            line-height: var(--line-height-relaxed);
+            margin: 0 auto var(--spacing-xl);
+        }
+         .page-intro:not(.lead) {
+            font-family: var(--font-family-sans);
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            text-align: center;
+            max-width: 65ch;
+            margin: 0 auto var(--spacing-xxl);
+            line-height: var(--line-height-relaxed);
+         }
+
+        h1, h2, h3, h4 { 
+            font-family: var(--font-family-display); 
+            line-height: var(--line-height-tight); 
+            margin-left: auto; 
+            margin-right: auto; 
+            margin-bottom: var(--spacing-lg); 
+            color: var(--color-text-headings); 
+            text-shadow: var(--text-shadow-subtle);
+            letter-spacing: -0.025em; 
+        }
+        
+        .guide-page-content h3 { 
+            font-size: clamp(1.7rem, 4vw, 2.1rem); 
+            font-weight: var(--font-weight-semibold); 
+            color: var(--color-accent-green-vibrant);
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg); 
+            padding-bottom: var(--spacing-sm);
+            text-align: left;
+            text-shadow: none; 
+            position: relative; 
+         }
+        .guide-page-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0; 
+            height: 2px;
+            background-color: var(--color-accent-green-vibrant);
+            transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); 
+        }
+        .guide-page-content h3.is-visible::after {
+            width: 100%; 
+        }
+        .guide-page-content h3:hover {
+            color: var(--color-accent-green-vibrant-hover); 
+        }
+
+        .guide-page-content h4 { 
+            font-family: var(--font-family-sans); 
+            font-size: 1.3rem; 
+            font-weight: var(--font-weight-semibold); 
+            color: var(--color-text-primary); 
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-md); 
+            text-align: left;
+            text-shadow: none;
+         }
+        .lesson-article:first-of-type h3 {
+             margin-top: var(--spacing-lg); 
+         }
+        .lesson-article {
+             background-color: var(--color-surface); 
+             padding: var(--spacing-xl); 
+             border-radius: var(--border-radius-lg);
+             box-shadow: var(--card-shadow);
+             margin-bottom: var(--spacing-xl);
+             border: 1px solid var(--color-border);
+             transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+         }
+        .lesson-article:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: var(--card-hover-shadow);
+            border-color: var(--color-accent-green-vibrant);
+        }
+        .lesson-article:last-of-type {
+             margin-bottom: var(--spacing-lg);
+         }
+
+        p { 
+            font-family: var(--font-family-sans);
+            font-weight: var(--font-weight-regular);
+            margin-bottom: var(--spacing-lg); 
+            max-width: 65ch; 
+            font-size: 1.125rem; 
+            color: var(--color-text-primary); 
+            line-height: var(--line-height-relaxed);
+        }
+        .lesson-article p { 
+            max-width: none; 
+            text-align: left; 
+            color: var(--color-text-secondary); 
+        } 
+
+         ul, ol {
+            list-style-position: outside; 
+            margin: var(--spacing-lg) 0 var(--spacing-lg) var(--spacing-md); 
+            padding-left: var(--spacing-lg); 
+            max-width: 65ch; 
+            color: var(--color-text-primary); 
+            text-align:left;
+            font-size: 1.05rem; 
+            line-height: var(--line-height-normal);
+        }
+        .lesson-article ul, .lesson-article ol { margin-left:0; margin-right:0; max-width: none;}
+        
+        .lesson-article ul li, .lesson-article ol li { 
+            margin-bottom: var(--spacing-sm); 
+            padding-left: var(--spacing-sm); 
+            position: relative;
+            opacity: 0; /* For staggered animation */
+            transform: translateY(10px); /* For staggered animation */
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+        .lesson-article.is-visible ul li, .lesson-article.is-visible ol li {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Staggered delays for list items, set by JS */
+
+        .lesson-article ul li::before, .lesson-article ol li::before {
+            content: '';
+            position: absolute;
+            left: -5px; 
+            top: 50%;
+            transform: translateY(-50%) scale(1); 
+            transform-origin: center;
+            width: 8px; 
+            height: 8px; 
+            border-radius: 50%;
+            background-color: var(--color-accent-ochre);
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        }
+        .lesson-article ul li:hover::before, .lesson-article ol li:hover::before {
+            transform: translateY(-50%) scale(1.5);
+            background-color: var(--color-electric-blue-glow); /* Electric hover for marker */
+        }
+
+        .lesson-article ol { list-style-type: none; }
+        .lesson-article ol li { counter-increment: lesson-ol-counter; }
+        .lesson-article ol li::before { 
+            content: counter(lesson-ol-counter) "."; 
+            background-color: transparent; 
+            color: var(--color-accent-ochre);
+            width: auto;
+            left: -20px; 
+            font-weight: var(--font-weight-semibold);
+        }
+        .lesson-article ol li:hover::before {
+            color: var(--color-electric-blue-glow);
+            transform: translateY(-50%) scale(1.1); /* Slight scale for number */
+        }
+
+         ul ul, ol ol { margin-top: var(--spacing-sm); margin-bottom: var(--spacing-sm); }
+         strong { font-weight: var(--font-weight-semibold); color: var(--color-text-headings); }
+
+        .cta-button {
+            display: inline-block; background-color: var(--color-accent-green-vibrant); color: var(--color-primary-action-text);
+            padding: var(--spacing-md) var(--spacing-xl); border-radius: var(--border-radius-md);
+            text-decoration: none; font-weight: var(--font-weight-semibold); font-size: 1.1rem; text-align: center;
+            transition: var(--transition-medium);
+            margin-top: var(--spacing-lg); border: none; 
+            box-shadow: 0 4px 15px var(--button-glow-color), 0 2px 5px rgba(0,0,0,0.2); 
+            cursor: pointer;
+        }
+        .cta-button:hover { 
+            background-color: var(--color-accent-green-vibrant-hover); 
+            transform: translateY(-2px) scale(1.02); 
+            box-shadow: 0 6px 20px var(--button-glow-hover-color), 0 4px 8px rgba(0,0,0,0.3); 
+        }
+
+        code { font-family: var(--font-family-sans); background-color: var(--inline-code-bg); padding: 0.25em 0.5em; border-radius: var(--border-radius-sm); font-size: 0.9em; color: var(--inline-code-text); font-weight: var(--font-weight-medium); }
+        pre { 
+            background-color: var(--code-block-bg); color: var(--code-block-text); padding: var(--spacing-lg); 
+            border-radius: var(--border-radius-md); overflow-x: auto; 
+            margin: var(--spacing-lg) 0; 
+            font-size: 0.9rem; box-shadow: inset 0 2px 4px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.1); 
+            border: 1px solid var(--color-border); max-width:100%;
+            position: relative; 
+            transition: box-shadow var(--transition-fast);
+        }
+        .lesson-article pre { margin-left:0; margin-right:0;}
+        pre code { background-color: transparent; padding: 0; color: inherit; font-size: inherit; font-weight: var(--font-weight-regular); }
+
+        pre::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: var(--border-radius-md);
+            border: 2px solid transparent;
+            pointer-events: none;
+            z-index: 1;
+            transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            opacity: 0;
+        }
+        pre:hover::before {
+            opacity: 1;
+            border-color: var(--color-electric-blue-glow);
+            box-shadow: 0 0 15px var(--color-electric-blue-glow), 0 0 5px var(--color-electric-blue-glow) inset;
+            animation: pulseGlow 1.5s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            from { box-shadow: 0 0 10px -5px var(--color-electric-blue-glow), 0 0 3px -2px var(--color-electric-blue-glow) inset; }
+            to { box-shadow: 0 0 20px 0px var(--color-electric-blue-glow), 0 0 10px 0px var(--color-electric-blue-glow) inset; }
+        }
+        
+        .prompt-example-wrapper {
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+        .prompt-example-label {
+            display: inline-block;
+            font-family: var(--font-family-sans);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-prompt-label-text);
+            background-color: var(--color-prompt-label-bg);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+            font-size: 0.9rem;
+            border: 1px solid var(--color-accent-ochre);
+            border-bottom: none; /* Remove default border */
+            position: relative; /* For custom underline/glow */
+            z-index: 2; /* Above pre's ::before */
+        }
+        .prompt-example-label::after { /* Glowing underline */
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1px; /* Align with bottom of the label */
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-prompt-label-border-glow);
+            box-shadow: 0 0 8px var(--color-prompt-label-border-glow);
+            transition: all var(--transition-fast);
+        }
+        .prompt-example-label svg {
+            width: 1em;
+            height: 1em;
+            margin-right: var(--spacing-sm);
+            vertical-align: -0.125em;
+            fill: currentColor;
+        }
+        .prompt-example-wrapper pre {
+            margin-top: 0;
+            border-top-left-radius: 0;
+            border-top: 1px solid var(--color-accent-ochre); /* Connect to label */
+        }
+
+
+        footer { background-color: var(--color-surface); border-top: 1px solid var(--color-border); color: var(--color-text-secondary); padding: var(--spacing-xl) 0; margin-top: var(--spacing-xxl); font-size: 0.9rem; text-align:center; }
+        /* Footer updated: Removed Privacy Policy & Terms of Service coming soon */
+        footer span { margin: 0 0.25rem; } /* Reduced margin if only one span exists */
+
+
+        .scroll-animate {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-animate.fadeInUp {
+            transform: translateY(50px);
+        }
+        .scroll-animate.is-visible {
+            opacity: 1;
+            transform: translateY(0); 
+        }
+        
+        .callout {
+            padding: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+            border-radius: var(--border-radius-md);
+            border-left-width: 5px;
+            border-left-style: solid;
+            position: relative; 
+        }
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+        .callout strong { 
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.1em;
+        }
+        .callout p {
+            font-size: 1.05rem; 
+        }
+
+        .callout-pitfall {
+            background-color: var(--color-callout-pitfall-bg);
+            border-left-color: var(--color-callout-pitfall-border);
+        }
+        .callout-pitfall strong {
+            color: var(--color-callout-pitfall-border);
+        }
+
+        .callout-expert {
+            background-color: var(--color-callout-expert-bg);
+            border-left-color: var(--color-callout-expert-border);
+        }
+        .callout-expert strong {
+            color: var(--color-callout-expert-border);
+        }
+
+        .callout > strong:first-child {
+            padding-left: 20px; 
+            position: relative;
+        }
+        .callout > strong:first-child::before {
+            content: '';
+            display: inline-block;
+            width: 1.1em; 
+            height: 1.1em;
+            position: absolute;
+            left: -5px; 
+            top: 50%;
+            transform: translateY(-50%);
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .callout-pitfall > strong:first-child::before {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23E57F5A" width="24" height="24"><path d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>');
+        }
+        .callout-expert > strong:first-child::before {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%233DDC97" width="24" height="24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>');
+        }
+
+
+        @media (max-width: 768px) {
+            :root { --header-height: 60px; }
+            #scroll-progress-bar { height: 3px; }
+            .page-title { font-size: clamp(2rem, 6.5vw, 2.4rem); }
+            .guide-page-content h3 { font-size: clamp(1.4rem, 5vw, 1.7rem); } 
+            .guide-page-content h4 { font-size: 1.05rem; }
+            .page-intro.lead { font-size: 1.1rem; }
+            .page-intro:not(.lead) { font-size: 1rem; }
+            .container { padding: 0 var(--spacing-md); }
+            header { position: sticky; }
+            nav ul { flex-direction: row; justify-content: space-around; gap: var(--spacing-sm); padding: var(--spacing-sm) 0;}
+            nav ul li a { padding: var(--spacing-sm) var(--spacing-xs); border-bottom: 2px solid transparent; font-size: 0.9rem;}
+            nav ul li a:hover, nav ul li a.active { background-color: transparent; border-bottom-color: var(--color-accent-green-vibrant);} 
+            .guide-page-content { padding: var(--spacing-xxl) 0; } 
+            .lesson-article { padding: var(--spacing-lg) var(--spacing-md); }
+            .cta-button { padding: var(--spacing-md) var(--spacing-lg); font-size: 1rem;}
+            pre { padding: var(--spacing-md); font-size: 0.85rem; }
+            .callout { padding: var(--spacing-md); }
+            .callout > strong:first-child { padding-left: 25px; } 
+            .callout > strong:first-child::before { left: 0; }
+        }
+        @media (max-width: 480px) {
+            .page-title { font-size: clamp(1.8rem, 7.5vw, 2.2rem); }
+            .guide-page-content h3 { font-size: clamp(1.2rem, 6vw, 1.4rem); }
+            body { font-size: 15px; } 
+            .cta-button { width: 100%; }
+            p, ul, ol { font-size: 0.98rem; } 
+            .lesson-article { padding: var(--spacing-md) var(--spacing-sm); }
+            nav ul { gap: var(--spacing-xs); }
+            nav ul li a { font-size: 0.85rem; padding: var(--spacing-sm) var(--spacing-xs); }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="scroll-progress-bar"></div>
+
+    <header>
+        <nav class="container">
+             <ul>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#philosophy" class="nav-link">Our Philosophy</a></li>
+                <li><a href="index.html#explore-guides" class="nav-link active">Explore Guides</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="coding-dev-content" class="guide-page-content">
+            <div class="container">
+                <h1 class="page-title">Coding & Development</h1>
+                <p class="page-intro lead">
+                    Your AI Coding Co-Pilot: Supercharge Your Development Workflow
+                </p>
+                <p class="page-intro">
+                    AI can be an incredible asset for developers, from generating boilerplate code and explaining complex algorithms to debugging tricky issues and even suggesting architectural patterns. But like any powerful tool, wielding it effectively requires skill and strategy. This masterclass explores how to collaborate effectively with AI throughout the development lifecycle to accelerate your workflow and improve code quality.
+                </p>
+
+                <article class="lesson-article scroll-animate" data-animation="fadeInUp" data-animation-delay="0">
+                    <h3>Lesson 1: Be the Architect – Define Structure & Scope First</h3>
+                    <div class="callout callout-pitfall">
+                        <p><strong>The Common Pitfall: The "Build Me an App" Request</strong></p>
+                        <p>Starting with a vague, high-level request like "Build me a website" or "Write the code for a data analysis tool" is like telling an architect to "design a building" without specifying if it's a house, a skyscraper, or a shed. The AI has infinite interpretations, often leading to generic structures or misaligned functionality.</p>
+                    </div>
+                    <div class="callout callout-expert">
+                        <p><strong>The Expert Play: Provide the Blueprint Before the Bricks</strong></p>
+                        <p>Act as the project architect. Before asking the AI to write detailed code, define the high-level structure, core components, and essential requirements.</p>
+                    </div>
+                    <h4>Structuring Your Request:</h4>
+                    <ol>
+                        <li><strong>Define the Primary Goal:</strong> What is the absolute core purpose of this code/application?</li>
+                        <li><strong>Outline Key Components/Modules:</strong> Break the project down. What are the main sections, functions, classes, or pages needed? (e.g., User Authentication Module, Data Processing Function, API Endpoint for X, Main App Component, Settings Page).</li>
+                        <li><strong>Specify Core Functionality:</strong> Briefly describe what each component should *do*.</li>
+                        <li><strong>Identify Inputs & Outputs:</strong> What data does it need? What should it produce?</li>
+                        <li><strong>State Known Constraints:</strong> Programming language, required libraries/frameworks, performance requirements, deployment environment.</li>
+                    </ol>
+                    <div class="prompt-example-wrapper">
+                        <div class="prompt-example-label">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                            Actionable Prompt Example:
+                        </div>
+                        <pre><code class="language-plaintext">I need to build a simple Python script to process CSV files in a specific folder.
+Goal: Read each CSV, clean the data (remove rows with missing values in Column A), calculate the average of Column B, and write the results to a summary text file.
+Structure:
+1. Function to find all CSV files in the input directory.
+2. Function to read and process a single CSV file (takes filename as input, returns cleaned data and average).
+3. Main script logic to iterate through files, call the processing function, aggregate results, and write the summary file.
+Constraints: Use standard Python libraries only (like `csv`, `os`, `statistics`). The script needs to handle potential file read errors gracefully.
+Can you help draft the structure for these functions and the main script logic?</code></pre>
+                    </div>
+                    <p><strong>Why It Matters:</strong> Providing a clear architectural overview prevents the AI from making potentially poor structural decisions upfront. It focuses the AI's efforts and ensures the generated code aligns with your overall plan. <em>(Related Core Principle: Pillar 3 - Scope Scaffolding)</em></p>
+                </article>
+
+                <article class="lesson-article scroll-animate" data-animation="fadeInUp" data-animation-delay="100">
+                    <h3>Lesson 2: Demand Holistic Quality – Prompt for Non-Functional Requirements</h3>
+                    <div class="callout callout-pitfall">
+                        <p><strong>The Common Pitfall: Focusing Only on Features</strong></p>
+                        <p>You ask the AI for code that performs a specific function (e.g., "a login form," "a data sorting algorithm"). It delivers code that *works*, but might be incredibly slow, insecure, hard to test, or inaccessible to users with disabilities. Functional correctness is only part of the picture.</p>
+                    </div>
+                    <div class="callout callout-expert">
+                        <p><strong>The Expert Play: Prompt for Quality Attributes Explicitly</strong></p>
+                        <p>Leverage the AI's knowledge of best practices by stating your requirements for underlying quality attributes. Frame these around the desired outcome or standard.</p>
+                    </div>
+                    <h4>Key Quality Attributes to Consider:</h4>
+                    <ul>
+                        <li><strong>Performance:</strong> "This function needs to be highly performant as it will process large datasets." / "Optimize this query for speed." / "Prioritize low latency for this API endpoint."</li>
+                        <li><strong>Security:</strong> "Ensure this user input handling prevents common vulnerabilities like XSS and SQL injection." / "Implement password hashing using a strong, modern algorithm." / "Security is paramount for this authentication module."</li>
+                        <li><strong>Readability/Maintainability:</strong> "Generate code that follows standard [Language] style guides (e.g., PEP 8 for Python)." / "Include clear comments explaining complex logic." / "Structure the code logically for easy maintenance."</li>
+                        <li><strong>Testability:</strong> "Write this function so it can be easily unit tested." / "Structure the classes to allow for dependency injection."</li>
+                        <li><strong>Scalability:</strong> "Design this database schema with future scalability in mind." / "How can this architecture be adapted to handle 10x the traffic?"</li>
+                        <li><strong>Accessibility (for UI):</strong> "Ensure this HTML/JS component meets WCAG AA standards." / "Implement proper ARIA attributes for screen reader compatibility."</li>
+                    </ul>
+                     <p><strong>Why It Matters:</strong> Stating desired quality levels pushes the AI to incorporate relevant best practices and patterns beyond basic functionality, leading to more robust, professional-grade code.</p>
+                </article>
+
+                 <article class="lesson-article scroll-animate" data-animation="fadeInUp" data-animation-delay="150">
+                     <h3>Lesson 3: Code That Works vs. Code That's Right – Debugging & Fine-Tuning</h3>
+                     <div class="callout callout-pitfall">
+                        <p><strong>The Common Pitfall: Blind Trust in Generated Code</strong></p>
+                        <p>The AI generates code that runs without errors. Success! Or is it? The code might function, but produce incorrect results, behave unexpectedly in edge cases, or have subtle flaws (like the CSS Grid <code>minmax</code> issue causing poor layout despite correct syntax).</p>
+                     </div>
+                     <div class="callout callout-expert">
+                        <p><strong>The Expert Play: Develop Your "AI Code Review" Skills</strong></p>
+                        <p>Treat AI-generated code as a high-quality first draft written by a talented but potentially inexperienced developer. It *always* requires review, testing, and potentially fine-tuning.</p>
+                    </div>
+                    <h4>Effective Code Review & Debugging with AI:</h4>
+                     <ol>
+                         <li><strong>Understand the Principles:</strong> Develop a foundational grasp of the language, framework, or algorithm the AI is using. You don't need to be an expert, but understanding core concepts (like how CSS Grid works, or basic asynchronous patterns in JS) allows you to spot logical flaws or ask better questions.</li>
+                         <li><strong>Test Thoroughly:</strong> Go beyond the "happy path." Test edge cases, invalid inputs, different data volumes, various screen sizes (for UI).</li>
+                         <li><strong>Isolate the Problem:</strong> If something is wrong, try to pinpoint *where* the issue lies. Is it in the data processing logic? The UI rendering? A specific CSS rule?</li>
+                         <li><strong>Provide Precise Feedback to AI:</strong> Don't just say "it's broken." Explain:
+                             <ul>
+                                 <li><em>What you did:</em> "When I input value X..."</li>
+                                 <li><em>What you expected:</em> "...I expected the output Y."</li>
+                                 <li><em>What actually happened:</em> "...but I got output Z / this error message: <code>[paste error]</code>."</li>
+                                 <li><em>Your Hypothesis (Optional):</em> "I think the issue might be in how variable <code>foo</code> is calculated in this line..."</li>
+                             </ul>
+                         </li>
+                         <li><strong>Fine-Tune Values:</strong> Sometimes the AI uses correct techniques but suboptimal parameters (like the <code>minmax</code> value). Ask the AI to adjust specific values, or make the tweaks yourself if you understand the code.</li>
+                     </ol>
+                     <p><strong>Why It Matters:</strong> Functional code isn't always correct or optimal code. Developing the ability to critically review, test, and debug AI-generated code is essential for building reliable applications. <em>(Related Core Principle: Pillar 8 - Trust, But Verify Rigorously)</em></p>
+                 </article>
+
+                 <article class="lesson-article scroll-animate" data-animation="fadeInUp" data-animation-delay="200">
+                     <h3>Lesson 4: Leverage AI for Learning & Explanation</h3>
+                     <div class="callout callout-pitfall">
+                        <p><strong>The Common Pitfall: Only Using AI to *Get* Code</strong></p>
+                        <p>You ask AI for a solution, copy-paste it, and move on. You might miss a valuable opportunity to learn *why* the code works, understand a new technique, or grasp a complex concept.</p>
+                    </div>
+                    <div class="callout callout-expert">
+                        <p><strong>The Expert Play: Use AI as Your Personal Tutor</strong></p>
+                        <p>Turn code generation into a learning opportunity. Ask the AI to explain itself.</p>
+                    </div>
+                     <h4>Prompts for Deeper Understanding:</h4>
+                     <ul>
+                         <li>"Can you explain this line of code <code>[paste line]</code> in simple terms?"</li>
+                         <li>"What is the purpose of using <code>[specific function/library/pattern]</code> here?"</li>
+                         <li>"Are there alternative ways to achieve this same result? What are the pros and cons of each?"</li>
+                         <li>"Walk me through the logic of this algorithm step-by-step."</li>
+                         <li>"Why did you choose <code>[Data Structure X]</code> instead of <code>[Data Structure Y]</code> for this task?"</li>
+                         <li>"Explain the potential performance implications of this approach."</li>
+                     </ul>
+                     <p><strong>Why It Matters:</strong> AI can be an incredibly patient and knowledgeable tutor. Using it to explain code not only helps you debug but also deepens your own understanding, making you a better developer in the long run. <em>(Related Core Principle: Pillar 6 - Prompt Meta-Cognitively)</em></p>
+                 </article>
+
+                 <article class="lesson-article scroll-animate" data-animation="fadeInUp" data-animation-delay="250">
+                     <h3>Lesson 5: Modular Prototyping for Complex Systems</h3>
+                     <div class="callout callout-pitfall">
+                        <p><strong>The Common Pitfall: The Monolithic Request</strong></p>
+                        <p>Asking the AI to generate an entire complex application (like the multi-feature military comparison webpage) in one go often results in a tangled mess. Managing all the interdependencies, styling, and logic simultaneously is too much, even for powerful AI.</p>
+                    </div>
+                     <div class="callout callout-expert">
+                        <p><strong>The Expert Play: Build and Perfect One Component at a Time</strong></p>
+                        <p>Adopt a modular approach, especially for UI-heavy projects.</p>
+                    </div>
+                     <h4>The Modular Workflow:</h4>
+                     <ol>
+                         <li><strong>Identify the Core Repeating Unit:</strong> What's the fundamental building block? (e.g., A single comparison row, a product card, a navigation link with its hover effect).</li>
+                         <li><strong>Scope Down:</strong> Ask the AI to generate *only* the HTML, CSS, and maybe minimal JS for that single, isolated component.</li>
+                         <li><strong>Iterate on the Unit:</strong> Layer features onto that single component iteratively. Get the styling right. Add animations. Implement basic interactions. Test thoroughly *at the unit level*.</li>
+                         <li><strong>Achieve Unit Perfection:</strong> Only when that single component looks and behaves *exactly* as desired should you ask the AI to integrate it into the larger structure or generate multiple instances.</li>
+                     </ol>
+                     <p><strong>Why It Matters:</strong> This drastically simplifies debugging and refinement. Fixing a CSS issue or animation glitch on one isolated component is far easier than untangling it across a dozen interconnected elements generated all at once. It leads to higher quality, more maintainable code.</p>
+                 </article>
+
+                <p style="text-align: center; margin-top: 3rem;">
+                    <a href="index.html#explore-guides" class="cta-button">Back to All Guides</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+         <div class="container">
+             <p>&copy; 2025 AI Collaboration Co-Pilot. All rights reserved.</p>
+             <!-- Privacy Policy & Terms of Service removed as requested -->
+         </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Active Nav Link
+            const navLinks = document.querySelectorAll('header nav a.nav-link');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === 'index.html#explore-guides') {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else {
+                    link.classList.remove('active');
+                    link.removeAttribute('aria-current');
+                }
+            });
+
+            // Scroll Progress Bar
+            const scrollProgressBar = document.getElementById('scroll-progress-bar');
+            function updateScrollProgress() {
+                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollPercentage = (scrollTop / scrollHeight) * 100;
+                if (scrollProgressBar) {
+                    scrollProgressBar.style.width = scrollPercentage + '%';
+                }
+            }
+            window.addEventListener('scroll', updateScrollProgress, { passive: true });
+            updateScrollProgress(); // Initial call
+
+            // Scroll-Triggered Animations
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            const lessonHeaders = document.querySelectorAll('.guide-page-content h3');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.classList.contains('scroll-animate')) {
+                            const animationType = entry.target.dataset.animation || 'fadeInUp';
+                            entry.target.classList.add('is-visible', animationType);
+                            
+                            const delay = entry.target.dataset.animationDelay;
+                            if (delay) {
+                                entry.target.style.transitionDelay = `${delay}ms`;
+                            }
+
+                            // Stagger list item animations
+                            const listItems = entry.target.querySelectorAll('ul li, ol li');
+                            listItems.forEach((li, index) => {
+                                // Calculate delay: base delay (from article) + increment * index
+                                const articleDelay = parseInt(entry.target.dataset.animationDelay || 0);
+                                const baseDelayCss = getComputedStyle(document.documentElement).getPropertyValue('--delay-base').trim();
+                                const incrementCss = getComputedStyle(document.documentElement).getPropertyValue('--delay-increment').trim();
+                                
+                                const baseDelayMs = parseFloat(baseDelayCss) || 100;
+                                const incrementMs = parseFloat(incrementCss) || 50;
+
+                                li.style.transitionDelay = `${articleDelay + baseDelayMs + (index * incrementMs)}ms`;
+                            });
+                        }
+                        if (entry.target.tagName === 'H3') {
+                             entry.target.classList.add('is-visible');
+                        }
+                        
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                threshold: 0.1 
+            });
+
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+            lessonHeaders.forEach(header => {
+                observer.observe(header);
+            });
+        });
+    </script>
+
+</body>
+</html>
