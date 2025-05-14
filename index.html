@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Collaboration Co-Pilot | Your Guide to Mastering AI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- p5.js script will be moved to the end of body -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+             <ul>
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#philosophy" class="nav-link">Our Philosophy</a></li>
+                <li><a href="#explore-guides" class="nav-link">Explore Guides</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <canvas id="hero-background-canvas"></canvas>
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="container">
+                <h1>You're the Pilot,<br>AI is Your Co-Pilot.</h1>
+                <p class="lead">
+                    Stop guessing, start directing. This masterclass teaches you to steer AI towards the brilliant, specific results you envision—transforming frustration into predictable success.
+                </p>
+                <a href="#explore-guides" class="cta-button scroll-link">Begin Your Journey</a>
+            </div>
+        </section>
+
+        <section id="philosophy" class="scroll-animate" data-animation="fadeInUp">
+            <div id="philosophy-canvas-container"></div>
+            <div class="container">
+                <h2 class="scroll-animate" data-animation="fadeInUp" data-animation-delay="100">The AI Collaboration Blueprint:<br>Your Flight Plan</h2>
+                <p class="lead scroll-animate" data-animation="fadeInUp" data-animation-delay="200">
+                    Tired of AI's vague responses or the endless cycle of re-prompting? Effective AI use isn't about magic words; it's about mastering a collaborative dialogue. Our blueprint gives you the core principles to move beyond basic prompts and truly *direct* any AI tool for any task, ensuring your vision takes flight.
+                </p>
+
+                <div class="ai-input-output-visual scroll-animate" data-animation="fadeIn" data-animation-delay="300">
+                    <div class="visual-concept-box">
+                        <div class="prompt-labels-container">
+                            <div class="prompt-label prompt-label-left">Vague prompt</div>
+                            <div class="prompt-label prompt-label-right">Specific prompt</div>
+                        </div>
+                    </div>
+                    <p class="visual-explanation-text">This is the core of our teaching: how your clarity as the "Pilot" directly shapes the AI "Co-Pilot's" performance. We'll show you how, with every guide.</p>
+                </div>
+
+                <div class="pillars-grid">
+                    <div class="pillar-card scroll-animate" data-animation="slideInLeft" data-animation-delay="350">
+                        <span class="icon-placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                        </span>
+                        <h4>Specify Your Output</h4>
+                        <p>Clearly define the format and DNA of what you need the AI to produce.</p>
+                    </div>
+                    <div class="pillar-card scroll-animate" data-animation="fadeInUp" data-animation-delay="400">
+                        <span class="icon-placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        </span>
+                        <h4>Iterate Strategically</h4>
+                        <p>Refine AI's drafts with precise, guiding feedback for optimal results.</p>
+                    </div>
+                    <div class="pillar-card scroll-animate" data-animation="slideInRight" data-animation-delay="450">
+                        <span class="icon-placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+                        </span>
+                        <h4>Provide Rich Context</h4>
+                        <p>Give AI the "why" and "who" to ensure solutions are relevant and targeted.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="explore-guides">
+            <div id="explore-guides-canvas-container"></div>
+            <div class="container scroll-animate" data-animation="fadeInUp">
+                <h2 class="scroll-animate" data-animation="fadeInUp" data-animation-delay="100">Explore Our Masterclass Guides</h2>
+                <p class="lead scroll-animate" data-animation="fadeInUp" data-animation-delay="200">Click a topic to discover actionable strategies. Copy the insights to supercharge your interactions with any AI assistant.</p>
+                <div class="guides-grid">
+                    <a href="core-principles-guide.html" class="guide-topic-card scroll-animate" data-animation="scaleUp" data-animation-delay="250">
+                        <span class="icon-placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </span>
+                        <div>
+                            <h4>Core Collaboration Principles</h4>
+                            <p class="teaser">The foundational pillars for effective AI interaction, applicable to any task.</p>
+                        </div>
+                    </a>
+                    <a href="text-creation-guide.html" class="guide-topic-card scroll-animate" data-animation="scaleUp" data-animation-delay="300">
+                        <span class="icon-placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </span>
+                        <div>
+                            <h4>Text & Content Creation</h4>
+                            <p class="teaser">Craft authentic scripts, articles, and copy that truly resonates.</p>
+                        </div>
+                    </a>
+                    <a href="image-generation-guide.html" class="guide-topic-card scroll-animate" data-animation="scaleUp" data-animation-delay="350">
+                        <span class="icon-placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        </span>
+                        <div>
+                            <h4>Image Generation</h4>
+                            <p class="teaser">Direct AI to create stunning visuals that match your unique vision.</p>
+                        </div>
+                    </a>
+                    <a href="video-generation-guide.html" class="guide-topic-card scroll-animate" data-animation="scaleUp" data-animation-delay="400">
+                        <span class="icon-placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </span>
+                        <div>
+                            <h4>Video Generation (Image-to-Video)</h4>
+                            <p class="teaser">Breathe life into stills with precisely controlled motion.</p>
+                        </div>
+                    </a>
+                    <a href="coding-guide.html" class="guide-topic-card scroll-animate" data-animation="scaleUp" data-animation-delay="450">
+                        <span class="icon-placeholder">
+                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        </span>
+                        <div>
+                            <h4>Coding & Development</h4>
+                            <p class="teaser">Leverage AI as your co-pilot for cleaner code and faster debugging.</p>
+                        </div>
+                    </a>
+                    <a href="web-design-guide.html" class="guide-topic-card scroll-animate" data-animation="scaleUp" data-animation-delay="500">
+                        <span class="icon-placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        </span>
+                        <div>
+                            <h4>Web Design & UI/UX</h4>
+                            <p class="teaser">Guide AI to build beautiful, intuitive, and interactive web experiences.</p>
+                        </div>
+                    </a>
+                    <a href="marketing-guide.html" class="guide-topic-card scroll-animate" data-animation="scaleUp" data-animation-delay="550">
+                        <span class="icon-placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9v18l-19-9Z"></path><path d="M12.5 12H3"></path></svg>
+                        </span>
+                        <div>
+                            <h4>Marketing & Strategy</h4>
+                            <p class="teaser">Gain deeper audience insights and plan more effective campaigns.</p>
+                        </div>
+                    </a>
+                    <a href="data-analysis-guide.html" class="guide-topic-card scroll-animate" data-animation="scaleUp" data-animation-delay="600">
+                        <span class="icon-placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+                        </span>
+                        <div>
+                            <h4>Data Analysis & Visualization</h4>
+                            <p class="teaser">Turn raw data into clear stories and actionable insights with AI.</p>
+                        </div>
+                    </a>
+                     <a href="practice-lab.html" class="guide-topic-card scroll-animate" data-animation="scaleUp" data-animation-delay="650">
+                        <span class="icon-placeholder">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                        </span>
+                        <div>
+                            <h4>Practice Lab Challenges</h4>
+                            <p class="teaser">Hone your skills with hands-on exercises for various AI tasks.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+         <div class="container">
+             <p>&copy; 2025 AI Collaboration Co-Pilot. All rights reserved. <span>|</span> Made by Janoob</p>
+         </div>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js" defer></script>
+    <script defer>
+        // Mobile detection utility
+        const isMobile = () => window.innerWidth < 768; // Threshold for mobile devices
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Smooth Scroll & Active Nav Link ---
+            const navLinks = document.querySelectorAll('header nav a.nav-link');
+            const header = document.querySelector('header');
+            const sectionsForNav = Array.from(document.querySelectorAll('main > section[id]'));
+
+            document.querySelectorAll('a.scroll-link, header nav a.nav-link').forEach(anchor => {
+                 anchor.addEventListener('click', function (e) {
+                    const hrefAttribute = this.getAttribute('href');
+                     if (hrefAttribute && hrefAttribute.startsWith('#') && hrefAttribute.length > 1) {
+                        const targetElement = document.getElementById(hrefAttribute.substring(1));
+                        if (targetElement) {
+                            e.preventDefault();
+                            const headerOffset = header?.offsetHeight || 70;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+            
+            const setActiveLink = () => {
+                let currentSectionId = 'hero'; 
+                const headerHeight = header?.offsetHeight || 70;
+                const scrollPosition = window.pageYOffset;
+                const windowHeight = window.innerHeight;
+                const docHeight = document.body.offsetHeight;
+
+                for (let i = sectionsForNav.length - 1; i >= 0; i--) {
+                    const section = sectionsForNav[i];
+                    if (section && typeof section.offsetTop !== 'undefined') {
+                       const sectionTop = section.offsetTop - headerHeight - Math.min(100, windowHeight * 0.25); 
+                        if (scrollPosition >= sectionTop) {
+                            currentSectionId = section.getAttribute('id');
+                            break;
+                        }
+                    }
+                }
+                
+                if ((windowHeight + scrollPosition) >= docHeight - 30) { 
+                     currentSectionId = sectionsForNav[sectionsForNav.length - 1]?.getAttribute('id') || currentSectionId;
+                }
+                
+                if (sectionsForNav.length > 0 && scrollPosition < (sectionsForNav[0]?.offsetTop - headerHeight - 50) ) {
+                    currentSectionId = 'hero';
+                }
+
+                navLinks.forEach(a => {
+                    const href = a.getAttribute('href');
+                    a.classList.remove('active'); 
+                    a.removeAttribute('aria-current'); 
+                    if (href && href.substring(1) === currentSectionId) {
+                        a.classList.add('active');
+                        a.setAttribute('aria-current', 'page');
+                    }
+                });
+            };
+
+            if (sectionsForNav.length > 0) {
+                window.addEventListener('scroll', setActiveLink, { passive: true });
+                setActiveLink(); 
+            } else { 
+                 const homeLink = document.querySelector('header nav a.nav-link[href="#hero"]');
+                 if(homeLink) {
+                     homeLink.classList.add('active');
+                     homeLink.setAttribute('aria-current', 'page');
+                 }
+            }
+
+            // --- HERO CANVAS ANIMATION: "Bioluminescent Energy Currents" ---
+            // We can keep this on mobile for now as it's fairly light,
+            // but if lag persists, this could also be wrapped in !isMobile()
+            const heroCanvas = document.getElementById('hero-background-canvas');
+            if (heroCanvas) { // Removed !isMobile() check for hero, can be re-added if needed
+                const ctx = heroCanvas.getContext('2d');
+                let width, height;
+                let strands = [];
+                let lastStrandTime = 0;
+                const strandInterval = 200; 
+                const maxStrands = isMobile() ? 20 : 50; // Fewer strands on mobile
+
+                const getCssVarWithFallback = (varName, fallbackColor) => {
+                    const value = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+                    return value || fallbackColor;
+                };
+                const baseBgColor = getCssVarWithFallback('--color-hero-canvas-base', '#0A100E'); 
+                const strandColors = [
+                    getCssVarWithFallback('--color-accent-green-vibrant', '#3DDC97'),
+                    getCssVarWithFallback('--color-accent-ochre', '#D4A373'),
+                    getCssVarWithFallback('--color-hero-canvas-ripple4', 'rgba(61, 180, 220, 0.7)') 
+                ];
+                class Strand {  
+                    constructor() { this.reset(); }
+                    reset() {
+                        this.x = -Math.random() * width * 0.3; this.y = Math.random() * height;
+                        this.speed = 1 + Math.random() * (isMobile() ? 1.5 : 2.5); this.length = Math.floor(10 + Math.random() * (isMobile() ? 10: 20));
+                        this.segments = []; this.amplitude = 20 + Math.random() * 60;
+                        this.frequency = 0.01 + Math.random() * 0.02; this.lineWidth = 1 + Math.random() * (isMobile() ? 1.5 : 2.5);
+                        this.baseColor = strandColors[Math.floor(Math.random() * strandColors.length)];
+                        this.opacity = 0.6 + Math.random() * 0.3; this.glowColor = this.baseColor; // Reduced base opacity
+                        this.glowBlur = 5 + Math.random() * (isMobile() ? 5 : 10); this.phase = Math.random() * Math.PI * 2;
+                        for (let i = 0; i < this.length; i++) { this.segments.push({ x: this.x - i * 7, y: this.y }); }
+                    }
+                    update() {
+                        this.segments[0].x += this.speed;
+                        this.segments[0].y = this.y + Math.sin(this.segments[0].x * this.frequency + this.phase) * this.amplitude;
+                        for (let i = 1; i < this.length; i++) {
+                            const prev = this.segments[i - 1]; const current = this.segments[i];
+                            const dx = prev.x - current.x; const dy = prev.y - current.y;
+                            const angle = Math.atan2(dy, dx); const distanceBetweenSegments = 7;
+                            current.x = prev.x - Math.cos(angle) * distanceBetweenSegments;
+                            current.y = prev.y - Math.sin(angle) * distanceBetweenSegments;
+                        }
+                        if (this.segments[this.segments.length -1].x > width + 50) { this.reset(); }
+                    }
+                    draw() {
+                        ctx.beginPath(); ctx.moveTo(this.segments[0].x, this.segments[0].y);
+                        for (let i = 1; i < this.length; i++) { ctx.lineTo(this.segments[i].x, this.segments[i].y); }
+                        ctx.strokeStyle = this.baseColor; ctx.lineWidth = this.lineWidth;
+                        ctx.globalAlpha = this.opacity * ( (this.segments[0].x / width) > 0.8 ? (1 - (this.segments[0].x/width - 0.8)/0.2) : 1) ;
+                        ctx.lineCap = 'round'; ctx.shadowColor = this.glowColor; ctx.shadowBlur = this.glowBlur;
+                        ctx.stroke(); ctx.shadowBlur = 0; ctx.globalAlpha = 1.0;
+                    }
+                }
+                const setCanvasDimensions = () => { 
+                    const parent = heroCanvas.parentElement;
+                    if (parent) { width = heroCanvas.width = parent.offsetWidth; height = heroCanvas.height = parent.offsetHeight; } 
+                    else { width = heroCanvas.width = window.innerWidth; height = heroCanvas.height = Math.max(400, window.innerHeight * 0.7); }
+                    if (strands.length > 0 || strands.length < maxStrands) { // Re-init if needed
+                        strands = []; for (let i = 0; i < maxStrands / 2; i++) { if (width && height) strands.push(new Strand());}
+                    }
+                };
+                window.addEventListener('resize', setCanvasDimensions, { passive: true });
+                function initStrands() { 
+                    strands = []; for (let i = 0; i < maxStrands / 2; i++) { if (width && height) strands.push(new Strand()); else { return; } }
+                }
+                let animationFrameId;
+                function animate(currentTime) { 
+                    animationFrameId = requestAnimationFrame(animate); if (!width || !height) { return; }
+                    ctx.fillStyle = baseBgColor; ctx.fillRect(0, 0, width, height);
+                    if (currentTime - lastStrandTime > strandInterval && strands.length < maxStrands) { strands.push(new Strand()); lastStrandTime = currentTime; }
+                    for (let i = strands.length - 1; i >= 0; i--) { strands[i].update(); strands[i].draw(); }
+                }
+                if (typeof animationFrameId !== 'undefined') { cancelAnimationFrame(animationFrameId); }
+                setTimeout(() => { 
+                    setCanvasDimensions(); 
+                    if (width > 0 && height > 0) { initStrands(); animate(0); } 
+                    else { setTimeout(() => { setCanvasDimensions(); if (width > 0 && height > 0) { initStrands(); animate(0); }}, 500); }
+                }, 100); 
+            } else { console.warn("Hero canvas element (#hero-background-canvas) not found."); }
+
+            // --- Scroll-Triggered Animations ---
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+            const contentObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const animationType = entry.target.dataset.animation || 'fadeInUp'; 
+                        entry.target.classList.add('is-visible', animationType);
+                        const delay = entry.target.dataset.animationDelay;
+                        if (delay) { entry.target.style.transitionDelay = `${delay}ms`; }
+                        contentObserver.unobserve(entry.target); 
+                    }
+                });
+            }, { threshold: 0.05 });
+            animatedElements.forEach(el => { contentObserver.observe(el); });
+        });
+    </script>
+
+    <script defer>
+        // p5.js Electric Sparks Sketch for #explore-guides
+        const sketchExploreGuides = (p) => {
+            let sparks = [];
+            let baseHues = [0, 30, 60, 120, 180, 210, 240, 270, 300, 330];
+            let canvasContainer;
+            const mobile = window.innerWidth < 768; // Check once at sketch init
+
+            p.setup = () => {
+                canvasContainer = p.select('#explore-guides-canvas-container').elt;
+                let canvas = p.createCanvas(canvasContainer.offsetWidth, canvasContainer.offsetHeight);
+                canvas.style('display', 'block');
+                p.colorMode(p.HSB, 360, 100, 100, 100);
+                p.background(0, 0, 5); 
+                if (mobile) p.frameRate(15); // Lower framerate on mobile
+            };
+
+            p.draw = () => {
+                p.background(0, 0, 5, mobile ? 25 : 15); // Slower fade for trails on mobile to compensate for lower FPS
+                if (p.random(1) < (mobile ? 0.15 : 0.35)) { // Fewer sparks on mobile
+                    let startX = p.random(p.width);
+                    let startY = p.random(p.height);
+                    let baseHue = p.random(baseHues);
+                    sparks.push(new Spark(startX, startY, baseHue, p, mobile));
+                }
+                for (let i = sparks.length - 1; i >= 0; i--) {
+                    sparks[i].update();
+                    sparks[i].display();
+                    if (sparks[i].isDead()) {
+                        sparks.splice(i, 1);
+                    }
+                }
+            };
+            
+            let resizeTimeoutExplore;
+            p.windowResized = () => {
+                clearTimeout(resizeTimeoutExplore);
+                resizeTimeoutExplore = setTimeout(() => {
+                    if (canvasContainer && canvasContainer.offsetWidth > 0 && canvasContainer.offsetHeight > 0) {
+                        p.resizeCanvas(canvasContainer.offsetWidth, canvasContainer.offsetHeight);
+                        p.background(0, 0, 5); 
+                    }
+                }, 250);
+            };
+
+            class Spark {
+              constructor(x, y, hue, pInstance, isMobileDevice) {
+                this.p = pInstance;
+                this.isMobile = isMobileDevice;
+                this.points = [this.p.createVector(x, y)]; 
+                this.hue = hue;
+                this.saturation = this.p.random(70, 100); 
+                this.brightness = 100;          
+                this.alpha = 100;                 
+                this.numSegments = this.p.floor(this.p.random(this.isMobile ? 3:5, this.isMobile? 8:12)); 
+                this.segmentLength = this.p.random(this.isMobile ? 8:10, this.isMobile ? 20:25);     
+                this.baseAngle = this.p.random(this.p.TWO_PI);        
+                this.growthFrames = this.numSegments; 
+                this.fadeFrames = this.p.random(this.isMobile?30:40, this.isMobile?50:60);     
+                this.maxLife = this.growthFrames + this.fadeFrames; 
+                this.currentFrame = 0;               
+                this.thickness = this.p.random(this.isMobile?1:1.2, this.isMobile?2.5:3.5); 
+              }
+              update() { /* ... same as before ... */ 
+                this.currentFrame++;
+                if (this.currentFrame <= this.growthFrames && this.points.length <= this.numSegments) {
+                  let lastPoint = this.points[this.points.length - 1];
+                  this.baseAngle += this.p.random(-0.2, 0.2); 
+                  let segmentAngle = this.baseAngle + this.p.random(-this.p.PI / 2.8, this.p.PI / 2.8); 
+                  let currentActualSegmentLength = this.segmentLength * this.p.random(0.6, 1.4); 
+                  let newX = lastPoint.x + this.p.cos(segmentAngle) * currentActualSegmentLength;
+                  let newY = lastPoint.y + this.p.sin(segmentAngle) * currentActualSegmentLength;
+                  this.points.push(this.p.createVector(newX, newY));
+                }
+                if (this.currentFrame > this.growthFrames) {
+                  let framesIntoFade = this.currentFrame - this.growthFrames;
+                  this.alpha = this.p.map(framesIntoFade, 0, this.fadeFrames, 100, 0);
+                }
+                this.alpha = this.p.constrain(this.alpha, 0, 100);
+                this.brightness = this.p.map(this.alpha, 100, 0, 100, 40); 
+              }
+              display() { /* ... same as before ... */
+                if (this.alpha <= 0) return; 
+                this.p.stroke(this.hue, this.saturation, this.brightness, this.alpha);
+                this.p.strokeWeight(this.thickness);
+                this.p.noFill();
+                this.p.beginShape();
+                for (let pt of this.points) {
+                  this.p.vertex(pt.x, pt.y);
+                }
+                this.p.endShape();
+                if (this.points.length > 0 && this.alpha > 10) {
+                  let tipIsBright = (this.currentFrame <= this.growthFrames + this.fadeFrames / 3);
+                  let tipAlphaMultiplier = tipIsBright ? 1.0 : 0.7; 
+                  let head = this.points[this.points.length - 1];
+                  this.p.fill(this.hue, this.saturation, 100, this.alpha * tipAlphaMultiplier); 
+                  this.p.noStroke();
+                  this.p.ellipse(head.x, head.y, this.thickness * 1.8, this.thickness * 1.8);
+                }
+              }
+              isDead() { return this.currentFrame >= this.maxLife || this.alpha <= 0; }
+            }
+        };
+        
+        // p5.js Perspective Road Sketch for #philosophy
+        const sketchPhilosophyRoad = (p) => {
+            let cars = [];
+            const mobile = window.innerWidth < 768; // Check once at sketch init
+            let numCars = mobile ? 4 : 8; // Fewer cars on mobile
+            let horizonY;
+            let roadColor, grassColor, skyColor;
+            let canvasContainerPhil;
+
+            class Car {
+              constructor(direction, lane) {
+                this.p = p; 
+                this.baseSpeed = this.p.random(mobile ? 0.8 : 1.2, mobile ? 1.8 : 2.5); 
+                this.direction = direction; 
+                this.lane = lane; 
+                this.carColors = [
+                  this.p.color(255, 235, 59), this.p.color(33, 150, 243), this.p.color(156, 39, 176),
+                  this.p.color(255, 152, 0),  this.p.color(244, 67, 54)  
+                ];
+                this.carColor = this.p.random(this.carColors);
+                this.w = mobile ? 40:50; this.h = mobile ? 22:28; 
+                this.y = 0; this.x = 0; this.scale = 1; this.currentSpeed = 0; 
+                this.reset(); 
+              }
+              reset() { /* ... same as before ... */
+                this.carColor = this.p.random(this.carColors);
+                if (this.direction === 1) { this.y = this.p.height + this.p.random(this.h, this.h * 5); } 
+                else { this.y = horizonY - this.p.random(this.h, this.h * 5); }
+              }
+              update() { /* ... same as before ... */
+                let perspectiveFactor = this.p.map(this.y, horizonY, this.p.height, 0.05, 1.0);
+                perspectiveFactor = this.p.constrain(perspectiveFactor, 0.05, 1.2); 
+                this.scale = perspectiveFactor;
+                this.currentSpeed = this.baseSpeed * (perspectiveFactor * perspectiveFactor + 0.1);
+                this.y += this.currentSpeed * this.direction * -1;
+                let roadHalfWidthAtCarY = (this.p.width * 0.4) * this.scale;
+                let laneOffsetFraction = (this.lane === 0) ? 0.35 : 0.70;
+                if (this.direction === 1) { this.x = this.p.width / 2 + roadHalfWidthAtCarY * laneOffsetFraction; } 
+                else { this.x = this.p.width / 2 - roadHalfWidthAtCarY * laneOffsetFraction; }
+                if ((this.direction === 1 && this.y < horizonY - (this.h * this.scale)) || 
+                    (this.direction === -1 && this.y > this.p.height + (this.h * this.scale))) {
+                  this.reset();
+                }
+              }
+              display() { /* ... same as before ... */
+                this.p.push(); this.p.translate(this.x, this.y); this.p.scale(this.scale);
+                this.p.noStroke(); this.p.fill(this.carColor);
+                this.p.rectMode(this.p.CENTER); this.p.rect(0, 0, this.w, this.h, 6); 
+                this.p.fill(this.p.red(this.carColor) * 0.7, this.p.green(this.carColor) * 0.7, this.p.blue(this.carColor) * 0.7);
+                this.p.rect(0, -this.h * 0.15, this.w * 0.6, this.h * 0.7, 4); 
+                this.p.pop();
+              }
+            }
+
+            p.setup = () => {
+                canvasContainerPhil = p.select('#philosophy-canvas-container').elt;
+                let canvas = p.createCanvas(canvasContainerPhil.offsetWidth, canvasContainerPhil.offsetHeight);
+                canvas.style('display', 'block');
+                horizonY = p.height * 0.45; 
+                p.colorMode(p.RGB); 
+                skyColor = p.color(20, 35, 40); 
+                grassColor = p.color(30, 60, 45); 
+                roadColor = p.color(50, 55, 60);   
+                cars = []; 
+                for (let i = 0; i < numCars; i++) {
+                    let dir = (i < numCars / 2) ? 1 : -1; let lane = p.floor(p.random(2)); 
+                    let newCar = new Car(dir, lane);
+                    if (dir === 1) { newCar.y = p.random(horizonY + (p.height - horizonY) * 0.1, p.height * 0.95); } 
+                    else { newCar.y = p.random(horizonY * 1.05, horizonY + (p.height - horizonY) * 0.9); }
+                    cars.push(newCar);
+                }
+                 if (mobile) p.frameRate(15); // Lower framerate on mobile
+            };
+            p.draw = () => { /* ... same as before ... */
+                p.background(skyColor); p.fill(grassColor); p.noStroke();
+                p.rect(0, horizonY, p.width, p.height - horizonY);
+                drawRoad(); drawRoadLines();
+                cars.sort((a, b) => a.scale - b.scale);
+                for (let car of cars) { car.update(); car.display(); }
+            };
+            function drawRoad() { /* ... same as before ... */
+                p.fill(roadColor); p.noStroke(); let vpX = p.width / 2;
+                let roadWidthBottom = p.width * 0.85; let roadWidthHorizon = p.width * 0.03;
+                p.beginShape(); p.vertex(vpX - roadWidthHorizon / 2, horizonY); 
+                p.vertex(vpX + roadWidthHorizon / 2, horizonY); 
+                p.vertex(p.width / 2 + roadWidthBottom / 2, p.height); 
+                p.vertex(p.width / 2 - roadWidthBottom / 2, p.height); p.endShape(p.CLOSE);
+            }
+            function drawRoadLines() { /* ... same as before ... */
+                let vpX = p.width / 2; p.stroke(200, 180, 0); p.noFill();
+                let numDashes = mobile ? 10 : 15; // Fewer dashes on mobile
+                let lineSeparationBottom = 18;
+                for (let i = 0; i < numDashes; i++) {
+                    let t1 = i / numDashes; let t2 = (i + 0.5) / numDashes; 
+                    let y1 = p.map(p.pow(t1, 1.5), 0, 1, horizonY, p.height);
+                    let y2 = p.map(p.pow(t2, 1.5), 0, 1, horizonY, p.height);
+                    if (y2 <= y1 + 1) continue; 
+                    let perspectiveFactor = p.constrain(p.map((y1 + y2) / 2, horizonY, p.height, 0.1, 1.0), 0.05, 1.0);
+                    p.strokeWeight(p.map(perspectiveFactor, 0.1, 1.0, mobile ? 0.5 : 1, mobile ? 2 : 3)); // Thinner lines on mobile
+                    let currentLineSeparation = lineSeparationBottom * perspectiveFactor * 0.5; 
+                    p.line(vpX - currentLineSeparation, y1, vpX - currentLineSeparation, y2); 
+                    p.line(vpX + currentLineSeparation, y1, vpX + currentLineSeparation, y2); 
+                }
+                p.noStroke();
+            }
+            let philResizeTimeout;
+            p.windowResized = () => { /* ... same as before ... */
+                 clearTimeout(philResizeTimeout);
+                 philResizeTimeout = setTimeout(() => {
+                    if (canvasContainerPhil && canvasContainerPhil.offsetWidth > 0 && canvasContainerPhil.offsetHeight > 0) {
+                        p.resizeCanvas(canvasContainerPhil.offsetWidth, canvasContainerPhil.offsetHeight);
+                        horizonY = p.height * 0.45;
+                        p.background(skyColor); 
+                    }
+                }, 250);
+            };
+        };
+        
+        // Initialize sketches after DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const isMobileDevice = () => window.innerWidth < 768;
+
+            if (!isMobileDevice()) { // Only load these heavy animations on non-mobile
+                if (document.getElementById('explore-guides-canvas-container')) {
+                    let exploreGuidesCanvasInstance = new p5(sketchExploreGuides, 'explore-guides-canvas-container');
+                    const exploreSection = document.getElementById('explore-guides');
+                    if (exploreSection && window.ResizeObserver) {
+                        const resizeObserver = new ResizeObserver(() => {
+                            if (exploreGuidesCanvasInstance && exploreGuidesCanvasInstance.windowResized) {
+                                 exploreGuidesCanvasInstance.windowResized();
+                            }
+                        });
+                        resizeObserver.observe(exploreSection);
+                    }
+                } else {
+                    console.warn('#explore-guides-canvas-container not found. Spark animation will not load.');
+                }
+
+                if (document.getElementById('philosophy-canvas-container')) {
+                    let philosophyRoadInstance = new p5(sketchPhilosophyRoad, 'philosophy-canvas-container');
+                    const philosophySection = document.getElementById('philosophy');
+                     if (philosophySection && window.ResizeObserver) {
+                        const philResizeObserver = new ResizeObserver(() => {
+                            if (philosophyRoadInstance && philosophyRoadInstance.windowResized) {
+                                 philosophyRoadInstance.windowResized();
+                            }
+                        });
+                        philResizeObserver.observe(philosophySection);
+                    }
+                } else {
+                    console.warn('#philosophy-canvas-container not found. Road animation will not load.');
+                }
+            } else {
+                // On mobile, add fallback classes to restore static backgrounds
+                const philosophySection = document.getElementById('philosophy');
+                if (philosophySection) philosophySection.classList.add('mobile-fallback-bg-philosophy');
+                
+                const exploreSection = document.getElementById('explore-guides');
+                if (exploreSection) exploreSection.classList.add('mobile-fallback-bg-explore');
+                
+                console.log("Mobile device detected. Skipping heavy p5.js animations for performance.");
+            }
+        });
+    </script>
+
+</body>
+</html>
